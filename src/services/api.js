@@ -4,7 +4,7 @@
 
 //= Dependencies =//
 import axios from 'axios';
-const BASE_URL = 'http://localhost:42069/api';
+const BASE_URL = process.env.API_URL;
 const TCGDEX_CARDS_URL = 'https://api.pokemontcg.io/v2/cards';
 
 
