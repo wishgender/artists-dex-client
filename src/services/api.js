@@ -17,7 +17,7 @@ export const fetchPokemonData = async (species) => {
     } else if (species === 'lillian' || species === 'vivian') {
         species = 'lilligant'
     }
-    const response = await axios.get(`${BASE_URL}/pokemon?species=${species}`);
+    const response = await axios.get(`${BASE_URL}api/pokemon?species=${species}`);
     // console.log(response.data)
     return response;
 };
