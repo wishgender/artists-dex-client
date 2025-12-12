@@ -5,13 +5,23 @@
 
 //= Dependencies =//
 import Home from '../pages/Home';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+import PokePage from '../pages/PokePage';
 
 //= Initialize app =//
 const App = () => {    
     return(
-        <div>
-            <Home />
-        </div>
+        <Router>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/dex/:number" element={<PokePage />} />
+        </Routes>
+        </Router>
     )
 };
 

@@ -3,8 +3,9 @@
 //= PokePage.jsx
 
 //= Dependencies =//
-import { useContext } from 'react';
-import { useSelector } from 'react-redux';
+import { useParams, useNavigate } from "react-router-dom";
+import { useContext, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { getPokemon } from "../features/pokemon/pokemonSlice";
 import styled from 'styled-components';
 import TCGTable from '../components/TCG/TCGTable';
@@ -19,7 +20,21 @@ const TCGandGames = styled.div`
 `;
 
 const PokePage = () => {
-    const pokemon = useSelector((state) => state.pokemon.data);
+    const { number } = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    
+    const pokemon = useSelector(
+      (state) => state.pokemon.data || {}
+    );
+    
+    console.log("Pokemon slice:", useSelector(state => state.pokemon));
+    useEffect(() => {
+      if (number) {
+        dispatch(getPokemon(number));
+      }
+    }, [number, dispatch]);
+
     if (pokemon != '') {
 
       return (

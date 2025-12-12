@@ -13,7 +13,6 @@ const Home = () => {
     if (pokemon !== '') return (
         <div>
             <Topbar />
-            <PokePage />
         </div>
     ); else return <div><Topbar /></div>
 }

@@ -4,7 +4,8 @@
 
 //= Dependencies =//
 import axios from 'axios';
-const BASE_URL = process.env.API_URL;
+const BASE_URL = "http://localhost:42069";
+// const BASE_URL = process.env.API_URL;
 const TCGDEX_CARDS_URL = 'https://api.pokemontcg.io/v2/cards';
 
 
@@ -17,7 +18,7 @@ export const fetchPokemonData = async (species) => {
     } else if (species === 'lillian' || species === 'vivian') {
         species = 'lilligant'
     }
-    const response = await axios.get(`${BASE_URL}/api/pokemon?species=${species}`);
+    const response = await axios.get(`${BASE_URL.trimEnd()}/api/pokemon?species=${species}`);
     // console.log(response.data)
     return response;
 };

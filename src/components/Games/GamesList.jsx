@@ -30,7 +30,12 @@ const HeaderRow = styled.div`
     background-color: ${theme.colors.dark1};
     color: ${theme.colors.light1};
     font-weight: bold;
-`
+`;
+
+const BoxArt = styled.img`
+    max-width: 200px;
+    max-height: 150px;
+`;
 
 export default function GamesList() {
     const pokemon = useSelector((state) => state.pokemon.data);
@@ -44,8 +49,8 @@ export default function GamesList() {
                 <>{
                     games.mainSeries.map((game, index) =>(
                         game && (
-                            <Row key={index} id={game}>
-                                {game}
+                            <Row key={index} id={game.title}>
+                                <BoxArt src={`/${game.boxArtPath}`} />
                             </Row>
                         )
                     ))
@@ -56,8 +61,8 @@ export default function GamesList() {
                 <>{
                     games.sideSeries.map((game, index) =>(
                         game && (
-                            <Row key={index} id={game}>
-                                {game}
+                            <Row key={index} id={game.title}>
+                                <BoxArt src={`/${game.boxArtPath}`} />
                             </Row>
                         )
                     ))
@@ -67,8 +72,8 @@ export default function GamesList() {
                 <>{
                     games.spinOffs.map((game, index) =>(
                         game && (
-                            <Row key={index} id={game}>
-                                {game}
+                            <Row key={index} id={game.title}>
+                                <BoxArt src={`/${game.boxArtPath}`} />
                             </Row>
                         )
                     ))
